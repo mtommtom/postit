@@ -19,6 +19,7 @@ def home():
     people = db.execute("SELECT * FROM users")
     return render_template('Home.html', rows=rows, people=people)
 
+# if the entered 'sub page' is one of the ids in the db then you can return the html
 @app.route('/home/<subPage>')
 def homeSubPage(subPage):
     link = int(subPage)
@@ -37,12 +38,9 @@ def post():
     if request.method == "GET":
         return render_template('postIt.html')
     elif request.method == "POST":
-        # get the id of the user
         uid = id
-        # if the id is -1 redirect to the login page
         if (id == -1):
             return redirect('/login')
-        # add to the posts table the description and the title (image do last or sometime else)
         title = request.form.get("title")
         description = request.form.get("description")
         db.execute("INSERT INTO posts (user_id, title, description) VALUES (:uid, :title, :description)", uid=uid, title=title, description=description)
@@ -77,7 +75,6 @@ def sign_up():
         else:
             print('The user name was already a thing')
         return redirect('/')
-        
 
 if __name__ == "__main__":
     app.secret_key = os.urandom(12)
