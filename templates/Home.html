@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <div class="container">
+        <a href="/postIt" class="btn btn-dark">post it!</a>
+        <ul>
+            {% for row in rows %}
+                <div class="card m-2" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ row["title"] }}</h5>
+                        {% set number = row["user_id"] | int %}
+                        <p class="card-text">Posted by <strong>{{ people[number - 1]["userName"] }}</strong></p>
+                      <a href="/home/{{ row['id'] }}" class="btn btn-dark">View Full Post</a>
+                    </div>
+                  </div>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

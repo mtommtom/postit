@@ -1,0 +1,13 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <div class="container">
+        <div class="display-4">{{ row[0]["title"] }}</div>
+        <blockquote class="blockquote">
+            <div class="description">{{ row[0]["description"] }}</div>
+        </blockquote>
+        <blockquote class="blockquote">
+            <footer class="blockquote-footer">{{ row[0]["userName"] }}</footer>
+        </blockquote>        
+    </div>
+{% endblock %}

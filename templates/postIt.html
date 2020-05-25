@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <style>
+        .form {
+            margin-top: 10px;
+            padding: 20px;
+            text-align: center;
+            border-radius: 20px;
+            background-color: #eeeeee;
+            height: 100%;
+        }
+        .input {
+            width: 50%;
+            height: 40px;
+            padding: 10px;
+            border: 0;
+            outline: 0;
+            border-bottom: 1px solid black;
+        }
+    </style>
+
+    <div class="container">
+        <form action="/postIt" method="post">
+            <input class="input mt-3" type="text" name="title" placeholder="Title">
+            <br>
+            <input class="input mt-3" type="text" name="image" placeholder="Image">
+            <br>
+            <input class="input mt-3" type="text" name="description" placeholder="Description">
+            <br>
+            <button class="mt-3 btn btn-dark">
+                post it!
+            </button>
+        </form>
+    </div>
+{% endblock %}
